@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portafolio · Isabel Rodríguez</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    @page { size: Letter; margin: 0.55in 0.6in; }
+    body { background: #fff; font-size: 10.5pt; line-height: 1.5; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    main { padding: 0; }
+    .page { break-before: page; }
+    .cover { padding-top: 0.2in; }
+    .cover h1 { font-size: 30pt; }
+    .cover .skills { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .cover .skill-group { padding: 10px; }
+    .cover .skill-group h3 { font-size: 10pt; margin-bottom: .2em; }
+    .cover .chip { font-size: 7.5pt; padding: 2px 8px; }
+    .cover .chips { gap: 4px; margin-top: .3em; }
+    .cover .toc { margin-top: 18px; gap: 2px; }
+    .cover .toc div { padding: 4px 0; }
+    .cover .lead { font-size: 11pt; }
+    .toc { margin-top: 28px; display: grid; gap: 8px; }
+    .toc div { display: flex; gap: 12px; align-items: baseline; border-bottom: 1px solid var(--line); padding: 6px 0; }
+    .toc b { color: var(--accent); min-width: 22px; }
+    .toc span { color: var(--muted); font-size: 9.5pt; }
+    h1 { font-size: 26pt; }
+    h2 { font-size: 13.5pt; }
+    section.block { margin-top: 22px; }
+    .metrics { margin-top: 16px; }
+    .metric strong { font-size: 16pt; }
+    .flow { grid-template-columns: repeat(3, 1fr); }
+    .keep, .card, .challenge, .metric, .flow li, .shot, .tech > div, .lane, .skill-group { break-inside: avoid; }
+    h2, h3 { break-after: avoid; }
+    .shots { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .shot-frame.empty { aspect-ratio: 16 / 9.5; }
+    .shot-frame img { max-height: 4.3in; }
+    .project-card, .card, .metric, .challenge, .diagram, .tech, .skill-group, .flow li { box-shadow: none; }
+    a { text-decoration: none; }
+  </style>
+</head>
+<body>
+  <main class="wrap" id="doc" style="max-width:none;padding:0"></main>
+  <script src="content.js"></script>
+  <script src="render.js"></script>
+  <script>
+    const { profile, cases } = window.PORTFOLIO;
+    const R = window.Render;
+    document.getElementById('doc').innerHTML = `
+      <section class="cover">
+        ${R.profileBlock(profile)}
+        <div class="toc">
+          ${cases.map((c, i) => `<div><b>${i + 1}</b><strong>${R.esc(c.name)}</strong><span>${R.esc(c.title)}</span></div>`).join('')}
+        </div>
+        <h2 style="margin-top:20px">Habilidades</h2>
+        ${R.skills(profile)}
+        <p class="note" style="margin-top:16px">${R.esc(profile.note)}</p>
+      </section>
+      ${cases.map((c) => `<article class="page">${R.caseBody(c)}</article>`).join('')}`;
+  </script>
+</body>
+</html>
