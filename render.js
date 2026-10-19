@@ -1,5 +1,6 @@
 // Funciones de renderizado compartidas por la web (index.html) y el PDF (print.html).
 (function () {
+  const T = window.T;
   const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
   const chips = (items, cls = 'chip') => `<ul class="chips">${items.map((i) => `<li class="${cls}">${esc(i)}</li>`).join('')}</ul>`;
@@ -13,7 +14,7 @@
              onerror="this.closest('figure').remove();">
         <div class="shot-placeholder" aria-hidden="true">
           <svg viewBox="0 0 24 24" width="28" height="28"><path fill="none" stroke="currentColor" stroke-width="1.5" d="M4 5h16v14H4zM4 15l4-4 4 4 3-3 5 5M15 9.5a1.5 1.5 0 1 0 0-.01"/></svg>
-          <span>Espacio para captura</span>
+          <span>${T.placeholder}</span>
           <code>${esc(path)}</code>
         </div>
       </a>
@@ -47,50 +48,50 @@
           <p class="lead">${esc(c.tagline)}</p>
           ${chips(c.tags)}
         </div>
-        ${c.logo ? `<img class="case-logo" src="img/${c.slug}/${c.logo}" alt="Logo de ${esc(c.name)}">` : ''}
+        ${c.logo ? `<img class="case-logo" src="img/${c.slug}/${c.logo}" alt="${T.logoOf} ${esc(c.name)}">` : ''}
       </header>
 
       <section class="metrics">${c.metrics.map((m) => `<div class="metric"><strong>${esc(m.value)}</strong><span>${esc(m.label)}</span></div>`).join('')}</section>
 
       <section class="block">
-        <h2>Mi rol</h2>
+        <h2>${T.role}</h2>
         <p class="role">${esc(c.role)}</p>
       </section>
 
       <section class="block">
-        <h2>Contexto y problema</h2>
+        <h2>${T.context}</h2>
         <p>${esc(c.context)}</p>
       </section>
 
       <section class="block">
-        <h2>Solución</h2>
+        <h2>${T.solution}</h2>
         <div class="cards">${c.solution.map((s) => `<article class="card"><h3>${esc(s.h)}</h3><p>${esc(s.p)}</p></article>`).join('')}</div>
       </section>
 
       <section class="block keep">
-        <h2>Arquitectura</h2>
+        <h2>${T.architecture}</h2>
         ${architecture(c.architecture)}
       </section>
 
       <section class="block keep">${flow(c.flow)}</section>
 
       <section class="block">
-        <h2>Tecnologías</h2>
+        <h2>${T.tech}</h2>
         <dl class="tech">${c.tech.map((t) => `<div><dt>${esc(t.group)}</dt><dd>${esc(t.items)}</dd></div>`).join('')}</dl>
       </section>
 
       <section class="block">
-        <h2>Implementación: retos y decisiones</h2>
+        <h2>${T.challenges}</h2>
         <div class="challenges">${c.challenges.map((s, i) => `<article class="challenge"><span class="ch-n">${String(i + 1).padStart(2, '0')}</span><div><h3>${esc(s.h)}</h3><p>${esc(s.p)}</p></div></article>`).join('')}</div>
       </section>
 
       <section class="block">
-        <h2>Capturas</h2>
+        <h2>${T.shots}</h2>
         <div class="shots">${c.shots.map((s) => shot(c.slug, s)).join('')}</div>
       </section>
 
       <section class="block">
-        <h2>Resultados</h2>
+        <h2>${T.results}</h2>
         <ul class="results">${c.results.map((r) => `<li>${esc(r)}</li>`).join('')}</ul>
       </section>`;
   }
@@ -102,13 +103,13 @@
       <p class="pc-title">${esc(c.title)}</p>
       <p>${esc(c.tagline)}</p>
       ${chips(c.tags.slice(0, 5))}
-      <span class="more">Ver caso de estudio →</span>
+      <span class="more">${T.viewCase}</span>
     </a>`;
   }
 
   function profileBlock(p, { links = true } = {}) {
     return `
-      <p class="eyebrow">Portafolio</p>
+      <p class="eyebrow">${T.portfolio}</p>
       <h1>${esc(p.name)}</h1>
       <p class="case-title">${esc(p.title)}</p>
       <p class="stackline">${p.stack.map(esc).join(' · ')}</p>

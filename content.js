@@ -1,6 +1,6 @@
-// Contenido del portafolio. La web (index.html) y el PDF (print.html) se generan desde aquí.
+// Contenido del portafolio en español. La versión en inglés está en content.en.js (misma estructura).
 // Para añadir una captura: guarda la imagen con el nombre indicado en "file" dentro de img/<proyecto>/.
-window.PORTFOLIO = {
+window.PORTFOLIO_ES = {
   profile: {
     name: 'Isabel Esther Rodríguez Alvarez',
     title: 'Backend & AI Agent Engineer',

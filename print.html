@@ -42,6 +42,8 @@
 <body>
   <main class="wrap" id="doc" style="max-width:none;padding:0"></main>
   <script src="content.js"></script>
+  <script src="content.en.js"></script>
+  <script src="i18n.js"></script>
   <script src="render.js"></script>
   <script>
     const { profile, cases } = window.PORTFOLIO;
@@ -52,7 +54,7 @@
         <div class="toc">
           ${cases.map((c, i) => `<div><b>${i + 1}</b><strong>${R.esc(c.name)}</strong><span>${R.esc(c.title)}</span></div>`).join('')}
         </div>
-        <h2 style="margin-top:20px">Habilidades</h2>
+        <h2 style="margin-top:20px">${window.T.skills}</h2>
         ${R.skills(profile)}
         <p class="note" style="margin-top:16px">${R.esc(profile.note)}</p>
       </section>
