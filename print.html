@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Portafolio · Isabel Rodríguez</title>
+  <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
   <style>
     @page { size: Letter; margin: 0.55in 0.6in; }
@@ -12,6 +13,7 @@
     .page { break-before: page; }
     .cover { padding-top: 0.2in; }
     .cover h1 { font-size: 30pt; }
+    .cover .hero-intro.has-photo { grid-template-columns: minmax(0,1fr) 1.75in; gap: 22px; }
     .cover .skills { grid-template-columns: repeat(3, 1fr); gap: 8px; }
     .cover .skill-group { padding: 10px; }
     .cover .skill-group h3 { font-size: 10pt; margin-bottom: .2em; }
@@ -37,6 +39,14 @@
     .shot-frame img { max-height: 4.3in; }
     .project-card, .card, .metric, .challenge, .diagram, .tech, .skill-group, .flow li { box-shadow: none; }
     a { text-decoration: none; }
+    .hero-title, .metric strong, .ch-n { background: none !important; color: var(--accent) !important; -webkit-text-fill-color: var(--accent); }
+    .metric::before, .hero-photo-wrap::before { -webkit-print-color-adjust: exact; }
+    .back-link, .badge .dot { animation: none; }
+    .back-link { display: none; }
+    .cover .hero-photo-wrap { margin-right: 12px; }
+    .cover .hero-photo-wrap::before { inset: 10px -10px -10px 10px; }
+    .hero h1 { font-size: 28pt; }
+    .project-card, .card, .metric, .challenge, .diagram, .tech, .skill-group, .flow li, .role, .results li, .shot-frame { box-shadow: none !important; }
   </style>
 </head>
 <body>

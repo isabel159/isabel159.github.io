@@ -12,12 +12,13 @@
   <meta property="og:url" content="https://isabel159.github.io/">
   <meta name="twitter:card" content="summary">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231f4e5f'/%3E%3Ctext x='32' y='42' font-family='Segoe UI,Arial,sans-serif' font-size='28' font-weight='700' fill='white' text-anchor='middle'%3EIR%3C/text%3E%3C/svg%3E">
+  <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="site-header">
     <div class="wrap">
-      <a class="brand" href="#/">Isabel <span>Rodríguez</span></a>
+      <a class="brand" href="#/"><span class="brand-mark" aria-hidden="true">IR</span><span class="brand-name">Isabel <b>Rodríguez</b></span></a>
       <nav class="nav" id="nav"></nav>
       <div class="tools" id="tools"></div>
     </div>
@@ -61,25 +62,35 @@
         renderNav('home');
         document.title = T.siteTitle;
         app.innerHTML = `
-          <section class="hero">
+          <section class="hero reveal">
             ${R.profileBlock(profile)}
             <div class="btns">
-              <a class="btn" href="#proyectos">${T.viewProjects}</a>
-              <a class="btn ghost" href="${T.cvPrimary.href}" target="_blank">${T.cvPrimary.text}</a>
-              <a class="btn ghost" href="${T.cvSecondary.href}" target="_blank">${T.cvSecondary.text}</a>
-              <a class="btn ghost" href="${T.portfolioPdf.href}" target="_blank">${T.portfolioPdf.text}</a>
-              <a class="btn ghost" href="mailto:${profile.email}">${T.contact}</a>
+              <a class="btn" href="#proyectos">${T.viewProjects} ${R.icon('arrow')}</a>
+              <a class="btn ghost" href="${T.cvPrimary.href}" target="_blank">${R.icon('download')} ${T.cvPrimary.text}</a>
+              <a class="btn ghost" href="${T.cvSecondary.href}" target="_blank">${R.icon('download')} ${T.cvSecondary.text}</a>
             </div>
           </section>
-          <section class="block" id="proyectos">
-            <h2>${T.projects}</h2>
-            <div class="projects">${cases.map(R.caseCard).join('')}</div>
+          <section class="block reveal" id="proyectos">
+            ${R.sectionHead(T.projectsEyebrow, T.projects, T.projectsIntro)}
+            <div class="projects">${cases.map((c, i) => R.caseCard(c, i)).join('')}</div>
           </section>
-          <section class="block">
-            <h2>${T.skills}</h2>
+          <section class="block reveal">
+            ${R.sectionHead(T.skillsEyebrow, T.skills)}
             ${R.skills(profile)}
           </section>
-          <section class="block">
+          <section class="block reveal">
+            <div class="cta">
+              <div class="cta-text">
+                <p class="eyebrow">${T.ctaEyebrow}</p>
+                <h2>${T.ctaTitle}</h2>
+                <p>${T.ctaText}</p>
+              </div>
+              <div class="cta-actions">
+                <a class="btn" href="mailto:${profile.email}">${R.icon('mail')} ${T.writeMe}</a>
+                <a class="btn ghost" href="${R.esc(profile.linkedin)}" target="_blank" rel="noopener">${R.icon('linkedin')} LinkedIn</a>
+                <a class="btn ghost" href="${T.portfolioPdf.href}" target="_blank">${R.icon('file')} ${T.portfolioPdf.text}</a>
+              </div>
+            </div>
             <p class="note">${R.esc(profile.note)}</p>
           </section>`;
       }
@@ -92,7 +103,7 @@
         const next = cases[(i + 1) % cases.length];
         renderNav(slug);
         document.title = `${c.name} · Isabel Rodríguez`;
-        app.innerHTML = R.caseBody(c) + `
+        app.innerHTML = `<div class="reveal">` + R.caseBody(c) + `</div>` + `
           <nav class="case-nav">
             <a class="btn ghost" href="#/proyecto/${prev.slug}">← ${R.esc(prev.name)}</a>
             <a class="btn ghost" href="#/proyecto/${next.slug}">${R.esc(next.name)} →</a>

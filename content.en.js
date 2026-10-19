@@ -13,6 +13,8 @@ window.PORTFOLIO_EN = {
     ],
     location: 'Remote · Cuba (US Eastern Time)',
     github: 'https://github.com/isabel159',
+    photo: 'img/isabel.webp',
+    photoAlt: 'Photo of Isabel Rodríguez',
     email: 'isabelestherr@gmail.com',
     linkedin: 'https://www.linkedin.com/in/ing-isabel-esther-rodr%C3%ADguez-alvarez-b9ab941b8',
     summary:
@@ -35,6 +37,7 @@ window.PORTFOLIO_EN = {
     // ------------------------------------------------------------------ VitalIA
     {
       slug: 'vitalia',
+      cover: '03-informe-soap.webp',
       name: 'VitalIA',
       title: 'AI-powered healthcare platform',
       tagline: 'Multi-agent medical board, automated clinical reports and real-time medical chat.',
@@ -113,6 +116,7 @@ window.PORTFOLIO_EN = {
     // ------------------------------------------------------------------ Xuxa
     {
       slug: 'xuxa',
+      cover: '01-busqueda.webp',
       name: 'Xuxa',
       title: 'AI real estate advisor · ED Bienes Raíces (Panama)',
       tagline: '24/7 agent on WhatsApp, Telegram and web that searches properties, captures leads and answers legal questions.',
@@ -189,6 +193,7 @@ window.PORTFOLIO_EN = {
     // ------------------------------------------------------------------ Sage
     {
       slug: 'sage',
+      cover: '01-solicitud.webp',
       name: 'Sage',
       title: 'Inventory and purchasing agent for restaurants (Panama)',
       tagline: 'Staff manage inventory, purchasing and goods receiving by chatting with an agent.',
@@ -268,6 +273,7 @@ window.PORTFOLIO_EN = {
     // ------------------------------------------------------------------ Backend
     {
       slug: 'backend',
+      cover: '04-ai-search.webp',
       name: 'Backend Projects',
       title: 'Mobility platform: geospatial search and real-time messaging',
       tagline: 'Backend services for a ride-hailing app that connects passengers and drivers.',

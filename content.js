@@ -13,6 +13,8 @@ window.PORTFOLIO_ES = {
     ],
     location: 'Remoto · Cuba (horario de EE. UU. Este)',
     github: 'https://github.com/isabel159',
+    photo: 'img/isabel.webp',
+    photoAlt: 'Foto de Isabel Rodríguez',
     email: 'isabelestherr@gmail.com',
     linkedin: 'https://www.linkedin.com/in/ing-isabel-esther-rodr%C3%ADguez-alvarez-b9ab941b8',
     summary:
@@ -35,6 +37,7 @@ window.PORTFOLIO_ES = {
     // ------------------------------------------------------------------ VitalIA
     {
       slug: 'vitalia',
+      cover: '03-informe-soap.webp',
       name: 'VitalIA',
       title: 'Plataforma de salud con IA',
       tagline: 'Junta médica multiagente, informes clínicos automáticos y chat médico en tiempo real.',
@@ -113,6 +116,7 @@ window.PORTFOLIO_ES = {
     // ------------------------------------------------------------------ Xuxa
     {
       slug: 'xuxa',
+      cover: '01-busqueda.webp',
       name: 'Xuxa',
       title: 'Asesora inmobiliaria con IA · ED Bienes Raíces (Panamá)',
       tagline: 'Agente 24/7 en WhatsApp, Telegram y web que busca propiedades, capta clientes y resuelve dudas legales.',
@@ -189,6 +193,7 @@ window.PORTFOLIO_ES = {
     // ------------------------------------------------------------------ Sage
     {
       slug: 'sage',
+      cover: '01-solicitud.webp',
       name: 'Sage',
       title: 'Agente de inventario y compras para restaurantes (Panamá)',
       tagline: 'El personal gestiona inventario, compras y recepción de mercancía conversando con un agente.',
@@ -268,6 +273,7 @@ window.PORTFOLIO_ES = {
     // ------------------------------------------------------------------ Backend
     {
       slug: 'backend',
+      cover: '04-ai-search.webp',
       name: 'Proyectos de Backend',
       title: 'Plataforma de movilidad: búsqueda geoespacial y mensajería en tiempo real',
       tagline: 'Servicios backend para una app de transporte que conecta pasajeros y conductores.',
